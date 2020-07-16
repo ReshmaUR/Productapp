@@ -1,0 +1,27 @@
+/* #matter{
+    background-image: url("https://image.freepik.com/free-vector/pattern-about-shopping_1061-495.jpg");
+    background-size: contain;
+} */
+#button{
+    color:white;
+    width: 250px;
+    height: 50px;
+    font-family: cursive;
+    font-size: 20px; 
+    margin-left: 100px;
+    margin-top: 140px;
+    background-color: rgb(20, 130, 233);
+    border-radius: 40px;
+}
+#heading{
+    margin-top: 80px;
+    font-family: cursive;
+    font-size: 98px;
+    color: rgb(20, 130, 233);
+}
+#second{
+    font-family: cursive;
+    font-size: 70px;
+    margin-top: 30px;
+    color: rgb(20, 130, 233);
+}

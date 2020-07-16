@@ -1,0 +1,45 @@
+<div class="card">
+    <div class="card-header">
+        {{title}}
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            <button class="btn btn-primary" (click) = 'toggleImage()'>
+                                {{showImage? 'Hide' : 'Show'}} Image
+                            </button>
+                        </th>
+                        <th>Product</th>
+                        <th>Code</th>
+                        <th>Available</th>
+                        <th>Price</th>
+                        <th>5 star rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = 'let product of products'>
+                        <td>
+                            <img *ngIf = 'showImage' [src] = 'product.imageUrl'
+                            [title] = 'product.productName'
+                            [style.width.px] = 'imageWidth'
+                            [style.margin.px] = 'imageMargin'>
+                        </td>
+                        <td>{{product.productName}}</td>
+                        <td>{{product.productCode}}</td>
+                        <td>{{product.releaseDate}}</td>
+                        <td>{{product.price}}</td>
+                        <td>{{product.starRating}}</td>
+                        <td><a class="action-btn" routerLink='/update' (click) = 'updateProduct(product._id)'><i class="fas fa-pencil-alt"></i></a></td>
+                        <!-- <td><a class="action-btn" (click) = 'deleteProduct()'><i class="fas fa-trash"></i></a></td> -->
+                        <td><a class="action-btn" (click) = 'deleteProduct(product._id)' routerLink="#"><i class="fas fa-trash"></i></a></td>
+                    </tr>
+                </tbody>
+                <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="productItem.productId">
+            </table>
+           
+        </div>
+    </div>
+</div>
