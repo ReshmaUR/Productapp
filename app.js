@@ -94,21 +94,31 @@ app.post("/login",(req,res)=>{
 
 // for update
 
-app.put("/update",function(req,res){
+app.post("/update",function(req,res){
     res.header("Access-Control-Allow-Origin","*")
     res.header("Access-Control-Allow-Methods: GET,POST,PATCH,PUT,DELETE,OPTIONS");
-    console.log(req.body);
-     id = req.body.id;
-    ProductData.findByIdAndUpdate({_id:id})
-    .then(function(){
-    console.log("Updated successfully");
-    ProductData.find()
-    .then(function(products){
-        res.send(products);
-    })
-    
-    })
+    console.log(id);
+    id = req.body.ID.id;
+    ProductData.findByIdAndUpdate({_id:id},{productId:req.body.product.productId,
+        productName:req.body.product.productName,productCode:req.body.product.productCode,
+        price:req.body.product.price,
+        starRating:req.body.product.starRating,        
+        imageUrl:req.body.product.imageUrl,     
+        releaseDate:req.body.product.releaseDate, 
+        description:req.body.product.description},(err,doc)=>{if(err)console.log(err)}
+    )
 })
+
+app.post('/updated',(req,res)=>{
+
+    console.log("Updated list")
+    id=req.body.ID.id;
+    console.log(id);
+    ProductData.findById({_id:id}).then((product)=>{res.send(product)});
+
+})
+
+
 
 
 app.listen(3000,function(){

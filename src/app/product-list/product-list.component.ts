@@ -20,13 +20,6 @@ export class ProductListComponent implements OnInit {
   toggleImage() : void{
     this.showImage = !this.showImage;
   }
- 
-  // updateProduct(_id){
-    // updateProduct(item){
-    //   this.productService.setter(item);
-
-    // }
-
   ngOnInit(): void {
     this.productService.getProducts()
     .subscribe((data)=>{
@@ -44,12 +37,6 @@ export class ProductListComponent implements OnInit {
         this.products = JSON.parse(JSON.stringify(data));
       })
     }
-  }
-  updateProduct(_id){
-    console.log("called update fun in pro ts file");
-    console.log(_id);
-    this.productService.updatePro(_id)
-        console.log(this.productItem);
   }
 
 }

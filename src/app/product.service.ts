@@ -23,11 +23,16 @@ export class ProductService {
     return this.http.post("http://localhost:3000/delete",{"id":_id})
   }
   //  for update
-  updatePro(_id:string){
-    return this.http.post("http://localhost:3000/update",{"id":_id})
+  updatePro(ID,updateItem){
+    return this.http.post("http://localhost:3000/update",{"product":updateItem,"ID":ID})
     .subscribe(data=>{
       console.log(data)
     })
+  }
+  updated(ID){
+    console.log(ID)
+    return this.http.post("http://localhost:3000/updated",{"ID":ID})   
+    
   }
 
 

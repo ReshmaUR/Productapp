@@ -32,7 +32,7 @@
                         <td>{{product.releaseDate}}</td>
                         <td>{{product.price}}</td>
                         <td>{{product.starRating}}</td>
-                        <td><a class="action-btn" routerLink='/update' (click) = 'updateProduct(product._id)'><i class="fas fa-pencil-alt"></i></a></td>
+                        <td><a class="action-btn" [routerLink]="['/update',product._id]"><i class="fas fa-pencil-alt"></i></a></td>
                         <!-- <td><a class="action-btn" (click) = 'deleteProduct()'><i class="fas fa-trash"></i></a></td> -->
                         <td><a class="action-btn" (click) = 'deleteProduct(product._id)' routerLink="#"><i class="fas fa-trash"></i></a></td>
                     </tr>
@@ -42,4 +42,8 @@
            
         </div>
     </div>
+
 </div>
+
+<!-- updateProduct -->
+<!--  (click) = 'Upget(product._id)' -->
